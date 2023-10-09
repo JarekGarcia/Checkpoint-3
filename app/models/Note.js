@@ -13,7 +13,7 @@ export class Note {
     this.color = data.color
     this.noteContent = data.noteContent || ''
     this.createdAt = data.createdAt ? new Date(data.createdAt) : new Date()
-    this.updatedAt = new Date()
+    this.updatedAt = data.updatedAt ? new Date(data.updatedAt) : new Date()
   }
 
   get notesTemplate() {
@@ -38,7 +38,7 @@ export class Note {
               <p>Updated At: ${this.updatedAt.toLocaleString()}</p>
             </div>
             <textarea onblur="app.NotesController.saveActiveNote()" name="noteContent" id="noteContent" class="w-100" cols="30" rows="10"
-              placeholder="Type notes...">${this.noteContent}</textarea>
+            placeholder="Type notes..."  style="border: 4px dashed ${this.color} " >${this.noteContent}</textarea>
             <button class="btn btn-success rounded-pill">Save</button>
             <button onclick="app.NotesController.deleteActiveNote()" class="btn btn-danger rounded-pill">Delete</button>
           </form>

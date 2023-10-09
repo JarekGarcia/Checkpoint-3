@@ -49,6 +49,8 @@ class NotesService {
         let activeNote = AppState.activeNote
         if (activeNote) { // null check 
             activeNote.noteContent = noteContent
+            activeNote.updatedAt = new Date()
+            AppState.emit('activeNote')
             _save()
         }
 

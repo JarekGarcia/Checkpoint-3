@@ -63,6 +63,7 @@ export class NotesController {
     }
 
     saveActiveNote() {
+        event.preventDefault()
         // @ts-ignore
         const noteContent = document.getElementById('noteContent').value
 
